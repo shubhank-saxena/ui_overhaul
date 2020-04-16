@@ -4,6 +4,7 @@ import Nav from './components/Nav';
 import Home from './pages/Home';
 import HomeAlt from './pages/HomeAlt';
 import About from './pages/About'
+import Events from './pages/Events';
 
 const App =()=> {
   return (
@@ -13,6 +14,7 @@ const App =()=> {
     <Switch>
     <Route exact path='/' component={HomeAlt} />
     <Route exact path='/about' component={About} />
+    <Route exact path='/events' component={Events} />
     </Switch>
     </div>
     </Router>
