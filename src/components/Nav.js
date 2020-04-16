@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
       flexGrow: 1,
     },
     appbar: {
-        alignItems: 'center',
+        // alignItems: 'center',
         // justifyContent: 'space-around',
         // display: 'flex',
         //  margin: 'auto',
@@ -33,19 +33,19 @@ const useStyles = makeStyles((theme) => ({
     },
     toolbar: {
         display: 'flex',
-        paddingRight:'50%',
-        paddingLeft:'20%'
+        // paddingRight:'50%',
+        // paddingLeft:'20%'
     },
     button: {
          justifyContent: 'space-around',
         display: 'flex',
          margin: 'auto',
-        width: '70%',
-        paddingTop: '1%',
-        paddingBottom: '1%',
+        // width: '70%',
+        // paddingTop: '1%',
+        // paddingBottom: '1%',
         fontSize: '1.5em',
         fontWeight: '300',
-        paddingRight:'20%',
+        // paddingRight:'20%',
         textDecoration:'none',
         color: 'black'
     },
@@ -64,7 +64,7 @@ const Nav = () => {
       <AppBar position="static" color="white" className={classes.appbar}>
         <Toolbar className={classes.toolbar}>
           <Link to='/' className={classes.button}>Home</Link>
-          <Link to='/' className={classes.button}>About</Link>
+          <Link to='/about' className={classes.button}>About</Link>
           <Link to='/' className={classes.button}>Team</Link>
           <Link to='/' className={classes.button}>Events</Link>
           <Link to='/' className={classes.button}>Contact</Link>

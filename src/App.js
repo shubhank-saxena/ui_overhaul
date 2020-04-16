@@ -1,6 +1,9 @@
 import React from 'react';
 import {Switch, BrowserRouter as Router, Route} from 'react-router-dom';
 import Nav from './components/Nav';
+import Home from './pages/Home';
+import HomeAlt from './pages/HomeAlt';
+import About from './pages/About'
 
 const App =()=> {
   return (
@@ -8,7 +11,8 @@ const App =()=> {
     <div className="App">
     <Nav />
     <Switch>
-  
+    <Route exact path='/' component={HomeAlt} />
+    <Route exact path='/about' component={About} />
     </Switch>
     </div>
     </Router>
