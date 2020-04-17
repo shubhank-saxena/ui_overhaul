@@ -1,12 +1,12 @@
 import React from 'react';
-import {Switch, BrowserRouter as Router, Route} from 'react-router-dom';
+import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import Nav from './components/Nav';
 import Home from './pages/Home';
 import HomeAlt from './pages/HomeAlt';
 import About from './pages/About'
 import Events from './pages/Events';
 
-const App =()=> {
+const App = () => {
   return (
     <Router>
     <div className="App">
