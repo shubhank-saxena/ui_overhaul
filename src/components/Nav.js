@@ -66,7 +66,7 @@ const Nav = () => {
               <Link to='/' className={classes.button}>Home</Link>
               <Link to='/about' className={classes.button}>About</Link>
               <Link to='/' className={classes.button}>Team</Link>
-              <Link to='/' className={classes.button}>Events</Link>
+              <Link to='/events' className={classes.button}>Events</Link>
               <Link to='/projects' className={classes.button}>Projects</Link>
               <Link to='/' className={classes.button}>Contact</Link>
               <Link to='/' className={classes.button}>Achievements</Link>
