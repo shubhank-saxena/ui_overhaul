@@ -69,7 +69,7 @@ const Nav = () => {
               <Link to='/events' className={classes.button}>Events</Link>
               <Link to='/projects' className={classes.button}>Projects</Link>
               <Link to='/' className={classes.button}>Contact</Link>
-              <Link to='/' className={classes.button}>Achievements</Link>
+              <Link to='/achievements' className={classes.button}>Achievements</Link>
             </Toolbar>
           </AppBar>
         </ResponsiveDiv>

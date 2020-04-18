@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import HomeAlt from './pages/HomeAlt';
 import About from './pages/About'
 import Events from './pages/Events';
+import Achievements from './pages/Achievements';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
     <Route exact path='/' component={HomeAlt} />
     <Route exact path='/about' component={About} />
     <Route exact path='/events' component={Events} />
+    <Route exact path='/achievements' component={Achievements} />
     </Switch>
     </div>
     </Router>
