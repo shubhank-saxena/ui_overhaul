@@ -8,13 +8,14 @@ import Typography from '@material-ui/core/Typography';
 import Slide from 'react-reveal/Slide';
 import { Container, CssBaseline } from "@material-ui/core";
 import Grid from '@material-ui/core/Grid';
-import Events from '../assets/events.svg';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
+import Winner from '../assets/undraw_winners_ao2o.svg';
 import Test from '../assets/undraw_scrum_board_cesn.svg';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+
 
 
 
@@ -57,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
       },
   }));
 
-const EventsAlt = () => {
+const Achievements = () => {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
@@ -73,11 +74,11 @@ const EventsAlt = () => {
          <Container fixed>
          <Grid container spacing={2} className={classes.grid}>
          <Grid item xs={12} sm={6} md={3} lg={6} xl={6} style={{paddingTop:'100px',}}>
-             <Typography variant='h3' style={{fontWeight:'bold'}}>Events</Typography>
+             <Typography variant='h3' style={{fontWeight:'bold'}}>Achievements</Typography>
              <Typography variant='h6' style={{color:'grey', paddingTop:'20px'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Typography>
          </Grid>
          <Grid item xs={12} sm={6} md={3} lg={6} xl={6} style={{paddingTop:'100px',}}>
-        <img src={Events} alt='event_img' height='50%' width='120%' />
+        <img src={Winner} alt='event_img' height='50%' width='120%' />
          </Grid>
          </Grid>
          <Grid container spacing={2}>
@@ -272,4 +273,4 @@ const EventsAlt = () => {
     )
 }
 
-export default EventsAlt
+export default Achievements
