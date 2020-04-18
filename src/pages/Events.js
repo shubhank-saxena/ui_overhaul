@@ -157,7 +157,9 @@ const EventsAlt = () => {
                         color="textSecondary"
                         component="p"
                       >
-                        {item.info}
+                        Venue: {item.venue} <br />
+                        Time: {item.time} <br />
+                        Link : <a href={item.link} target="_blank">Link</a>
                       </Typography>
                     </CardContent>
                   </CardActionArea>
@@ -194,13 +196,14 @@ const EventsAlt = () => {
           <Fade in={open}>
             <div className={classes.paperModal}>
               <h2 id="transition-modal-title">
-                {key != null ? events[key].venue : ""}
-                {key != null ? events[key].time : ""}
+                Know More
               </h2>
               <p id="transition-modal-description">
-                {key != null ? events[key].topics.map(item => (<li>{item.name}</li>)) : ""}
-
-                Link: {key != null ? events[key].link : ""}
+                <ol>
+                  {key != null ? events[key].topics.map(item => (<li>{item.name}</li>)) : ""}
+                </ol>
+                <br />
+                {key != null ? events[key].info : ""}
               </p>
             </div>
           </Fade>
