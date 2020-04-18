@@ -64,12 +64,12 @@ const Nav = () => {
           <AppBar position="static" color="white" className={classes.appbar}>
             <Toolbar className={classes.toolbar}>
               <Link to='/' className={classes.button}>Home</Link>
-              <Link to='/about' className={classes.button}>About</Link>
-              <Link to='/' className={classes.button}>Team</Link>
               <Link to='/events' className={classes.button}>Events</Link>
+              <Link to='/' className={classes.button}>Resources</Link>
               <Link to='/projects' className={classes.button}>Projects</Link>
-              <Link to='/' className={classes.button}>Contact</Link>
+              <Link to='/' className={classes.button}>Team</Link>
               <Link to='/achievements' className={classes.button}>Achievements</Link>
+              <Link to='/achievements' className={classes.button}>Blog</Link>
             </Toolbar>
           </AppBar>
         </ResponsiveDiv>
@@ -101,4 +101,4 @@ const MobileDiv = styled.div`
   }
 `
 
-export default Nav
+export default Nav;

@@ -154,9 +154,16 @@ HoverText3 = styled.button`
           >
             <div className="AboutTextContainer">
               <h2 className="AboutText">
-                At DSC TIET, our aim is to spread awareness and teach.
-                Developers, come together under one roof to create a community
-                which inspires thousands. Join Us!
+                Google DSC is a Developer Student Club which is a
+                technical community that combines all the university
+                students, and all the other students who learn,
+                share ideas and come up with viable projects that
+                are likely to solve day to day universe problems.
+                Additionally, it aims for university students to
+                help them build their mobile, web, machine learning,
+                cloud skills. The clubs are intended as a space for
+                students to try out new ideas and collaborate to
+                solve mobile and web development problems.
               </h2>
             </div>
             <img src={GoogleAssBg} className="imgBg2"></img>

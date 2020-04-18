@@ -1,61 +1,216 @@
-import React from "react";
-import "./styles/About.css";
-import styled from "styled-components";
-import AboutImage from "../assets/undraw_about_us_page_ee1k.svg";
-import Nav from "../components/Nav";
-import { Link } from "react-router-dom";
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { Fragment, useEffect, useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import Slide from "react-reveal/Slide";
+import { Container, CssBaseline } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+import Events from "../assets/events.svg";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardMedia from "@material-ui/core/CardMedia";
+import Test from "../assets/undraw_scrum_board_cesn.svg";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
+
+import axios from "axios";
+
+axios.defaults.baseURL = "https://dsctiet.pythonanywhere.com/api";
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+  },
 
-    button: {
-        backgroundColor: '#746B6B',
-        color: 'white'
-    }
+  button: {
+    backgroundColor: "#746B6B",
+    color: "white",
+  },
+  rootCard: {
+    maxWidth: 400,
+    height: 400,
+  },
+  media: {
+    height: 230,
+  },
+  grid: {
+    height: 550,
+  },
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: 400,
+    margin: "auto",
+  },
+  paperModal: {
+    backgroundColor: theme.palette.background.paper,
+    // border: '2px solid #000',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
 }));
 
-const About = () => {
-    const classes = useStyles();
-    return (
-        <div>
-            {/* <Nav active="about" /> */}
-            <div class='row'>
-                <div class='col s6' style={{
-                    paddingTop: '100px',
-                    paddingLeft: '50px'
-                }}>
-                    <img
-                        src={AboutImage}
-                        height="100%"
-                        width="80%"
-                        alt="image"></img>
-                </div>
-                <div class='col s6' style={{ paddingTop: '100px' }}>
-                    <Typography variant='h2'>About Us</Typography>
-                    <Typography variant='h5'>
-                        Google DSC is a Developer Student Club which is a
-                        technical community that combines all the university
-                        students, and all the other students who learn,
-                        share ideas and come up with viable projects that
-                        are likely to solve day to day universe problems.
-                        Additionally, it aims for university students to
-                        help them build their mobile, web, machine learning,
-                        cloud skills. The clubs are intended as a space for
-                        students to try out new ideas and collaborate to
-                        solve mobile and web development problems.
-                        </Typography>
-                    <div style={{
-                        paddingLeft: '570px',
-                        paddingTop: '20px'
-                    }}>
-                        <Button variant="contained" className={classes.button} size='large'> View the Team </Button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-}
+const ProjectsAlt = () => {
+  const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
-export default About;
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const [events, setEvents] = useState([]);
+  const [key, setKey] = useState(null);
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios.get("/events/");
+      setEvents(result.data)
+      console.log(events)
+    }
+    fetchData();
+  }, [])
+
+  return (
+    <Fragment>
+      <CssBaseline />
+      <Container fixed>
+        <Grid container spacing={2} className={classes.grid}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={3}
+            lg={6}
+            xl={6}
+            style={{ paddingTop: "100px" }}
+          >
+            <Typography variant="h3" style={{ fontWeight: "bold" }}>
+              Projects
+                        </Typography>
+            <Typography
+              variant="h6"
+              style={{ color: "grey", paddingTop: "20px" }}
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis
+              nostrud exercitation ullamco laboris nisi ut aliquip
+              ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore
+              eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officia
+              deserunt mollit anim id est laborum.
+                        </Typography>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={3}
+            lg={6}
+            xl={6}
+            style={{ paddingTop: "100px" }}
+          >
+            <img
+              src={Events}
+              alt="event_img"
+              height="50%"
+              width="120%"
+            />
+          </Grid>
+        </Grid>
+        <Grid container spacing={2}>
+
+          {events.map((item, index) => (
+            <Grid item xs={12} sm={6} md={3} lg={4} xl={4} style={{}} key={item.id}>
+              <Slide bottom>
+                <Card className={classes.rootCard}>
+                  <CardActionArea>
+                    <CardMedia
+                      className={classes.media}
+                      image={Test}
+                      title="Event"
+                    />
+                    <CardContent>
+                      <Typography
+                        gutterBottom
+                        variant="h5"
+                        component="h2"
+                      >
+                        {item.title}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        color="textSecondary"
+                        component="p"
+                      >
+                        Venue: {item.venue} <br />
+                        Time: {item.time} <br />
+                        Link : <a href={item.link} target="_blank">Link</a>
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions>
+                    <Button
+                      size="small"
+                      color="primary"
+                      onClick={() => {
+                        setKey(index)
+                        setOpen(true)
+                      }}
+                    >
+                      Learn More
+                                    </Button>
+                  </CardActions>
+                </Card>
+              </Slide>
+            </Grid>
+          ))}
+
+        </Grid>
+        <Modal
+          aria-labelledby="transition-modal-title"
+          aria-describedby="transition-modal-description"
+          className={classes.modal}
+          open={open}
+          onClose={handleClose}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 500,
+          }}
+        >
+          <Fade in={open}>
+            <div className={classes.paperModal}>
+              <h2 id="transition-modal-title">
+                Know More
+              </h2>
+              <p id="transition-modal-description">
+                <ol>
+                  {key != null ? events[key].topics.map(item => (<li>{item.name}</li>)) : ""}
+                </ol>
+                <br />
+                {key != null ? events[key].info : ""}
+              </p>
+            </div>
+          </Fade>
+        </Modal>
+      </Container>
+    </Fragment>
+  );
+};
+
+export default ProjectsAlt;
